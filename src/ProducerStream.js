@@ -3,7 +3,6 @@ var stream = require('stream');
 class ProducerStream extends stream.Writable {
    constructor (producer, topic, options = {}) {
      options.objectMode = options.objectMode || true;
-
      super(options);
      this._producer = producer;
      this._topic = topic;
@@ -28,8 +27,8 @@ class ProducerStream extends stream.Writable {
     }
 
     this._producer.send({
+      topic: topic,
       message: {
-        topic: topic,
         value: message
       }
     })
