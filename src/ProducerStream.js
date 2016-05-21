@@ -10,7 +10,7 @@ class ProducerStream extends stream.Writable {
 
   _write (chunk, enc, cb) {
     try {
-      var message = JSON.stringify(chunk)
+      var message = typeof chunk == 'object' ? JSON.stringify(chunk) : chunk;
       var topic = typeof this._topic == 'function' ?
             this._topic(message) :
             this._topic;
