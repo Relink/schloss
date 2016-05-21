@@ -1,1 +1,3 @@
-// index.js
+module.exports = {
+  ProducerStream: require('./lib/ProducerStream')
+};

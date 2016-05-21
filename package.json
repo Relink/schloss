@@ -4,7 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node_modules/.bin/mocha lib/**/*.spec.js",
+    "compile-watch": "node_modules/babel-cli/bin/babel.js src -d lib -s inline --watch",
+    "compile": "node_modules/babel-cli/bin/babel.js src -d lib -s inline",
+    "tdd": "node_modules/.bin/mocha src/**/*.spec.js --compilers js:babel-register --watch --colors"
   },
   "repository": {
     "type": "git",
@@ -16,5 +19,15 @@
   "bugs": {
     "url": "https://github.com/Relink/schloss/issues"
   },
-  "homepage": "https://github.com/Relink/schloss#readme"
+  "homepage": "https://github.com/Relink/schloss#readme",
+  "devDependencies": {
+    "babel-cli": "^6.9.0",
+    "babel-preset-es2015": "^6.9.0",
+    "babel-register": "^6.9.0",
+    "chai": "^3.5.0",
+    "mocha": "^2.4.5",
+    "proxyquire": "^1.7.9",
+    "sinon": "^1.17.4",
+    "sinon-chai": "^2.8.0"
+  }
 }
